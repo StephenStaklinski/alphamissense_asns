@@ -3,40 +3,58 @@ import pandas as pd
 import numpy as np
 
 # input_tsv = sys.argv[1]
-input_tsv = "data/asns_aa_substitutions.tsv"
+# output_diir = sys.argv[2]
+input_tsv = "results/P08243_aa_substitutions.tsv"
+output_dir="results/P08243_aa_substitutions_sorted/"
 
 # Load the TSV file into a DataFrame
-df = pd.read_csv('your_input.tsv', sep='\t')
+df = pd.read_csv(input_tsv, sep='\t', header=0, skiprows=3)
+df['aa'] = df['protein_variant'].str.extract(r'(\d+)')
+df['aa'] = df['aa'].astype(int)
+df = df.sort_values(by='aa')
+grouped_df = df.groupby('aa')
+aa_num = len(grouped_df)
+aa_array = np.array(range(1, aa_num + 1, 1))
+am_class_uniq_array = np.array([','.join(group['am_class'].unique()) for _,group in grouped_df])
 
-# Extract the group label (e.g., M1, C2) from the protein_variant column
-df['group_label'] = df['protein_variant'].str.extract(r'([A-Z][0-9][A-Z])')
+uniq_am_class_dict = {A: B for A, B in zip(aa_array, am_class_uniq_array)}
 
-# Separate entries into pathogenic, benign, and ambiguous DataFrames
-pathogenic_df = df[df['am_class'] == 'pathogenic']
-benign_df = df[df['am_class'] == 'benign']
-ambiguous_df = df[(df['am_class'] != 'pathogenic') & (df['am_class'] != 'benign')]
+pathogenic_only = []
+benign_only = []
+other = []
 
-# Function to check if all entries in a group are pathogenic or benign
-def is_all_pathogenic_or_benign(group_label):
-    return (group_label in pathogenic_df['group_label'].values) and (group_label in benign_df['group_label'].values)
+min_one_pathogenic = []
+none_pathogenic = []
 
-# Filter groups based on criteria and create final pathogenic and benign DataFrames
-final_pathogenic_df = pd.DataFrame(columns=df.columns)
-final_benign_df = pd.DataFrame(columns=df.columns)
+for key, value in uniq_am_class_dict.items():
+    
+    labels = value.split(',')
 
-for group_label in np.unique(df['group_label'].values):
-    if is_all_pathogenic_or_benign(group_label):
-        final_pathogenic_df = pd.concat([final_pathogenic_df, pathogenic_df[pathogenic_df['group_label'] == group_label]])
-        final_benign_df = pd.concat([final_benign_df, benign_df[benign_df['group_label'] == group_label]])
+    if 'pathogenic' in labels:
+        min_one_pathogenic.append(str(key))
     else:
-        ambiguous_df = pd.concat([ambiguous_df, df[df['group_label'] == group_label]])
+        none_pathogenic.append(str(key))
 
-# Remove the intermediate DataFrames
-df.drop(columns='group_label', inplace=True)
-final_pathogenic_df.drop(columns='group_label', inplace=True)
-final_benign_df.drop(columns='group_label', inplace=True)
+    if len(labels) == 1:
+        if labels == 'pathogenic':
+            pathogenic_only.append(str(key))
+        elif labels == 'benign':
+            benign_only.append(str(key))
+        else:
+            other.append(str(key))
+    else:
+        other.append(str(key))
 
-# Save the final DataFrames to TSV files
-final_pathogenic_df.to_csv('pathogenic.tsv', sep='\t', index=False)
-final_benign_df.to_csv('benign.tsv', sep='\t', index=False)
-ambiguous_df.to_csv('ambiguous.tsv', sep='\t', index=False)
+# Write data to txt files
+with open(f'{output_dir}pathogenic_only.txt', 'w') as file:
+    file.write('\n'.join(pathogenic_only))
+
+with open(f'{output_dir}benign_only.txt', 'w') as file:
+    file.write('\n'.join(benign_only))
+
+with open(f'{output_dir}minimum_one_pathogenic_sub.txt', 'w') as file:
+    file.write('\n'.join(min_one_pathogenic))
+
+with open(f'{output_dir}no_pathogenic_sub.txt', 'w') as file:
+    file.write('\n'.join(none_pathogenic))
+

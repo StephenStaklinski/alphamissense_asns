@@ -1,0 +1,41 @@
+ASNSD Associated ASNS Variants
+F362V (1084T>G) homozygote – Ruzzo et al. 2013 (3 affected from one family)
+R550C (1648 C>T) homozygote – Ruzzo et al. 2013 (2 affected from one family)
+A6E (17C>A) / R550C(1648C>T) compound heterozygote – Ruzzo et al. 2013 (3 affected from one family)
+Y398C (1193A>C) homozygote – Ben-Salem et al. 2015 and Y398C (1193A>G) homozygotes Alharby et al. 2020
+Y377C (1160A>G) homozygote – Alfadhel et al. 2015 (2 affected from one family) also Alfrifai et al. 2016 (same patient with supplementation)
+G289A (866G>C) / T337I (1010C>T) compound heterozygote – Palmer et al. 2015
+S480F (1439C>T) / R550C (1648C>T) compound heterozygote – Gataullina et al. 2016 (2 patients from one family)
+Y398C (1193A>G) homozygote – Seidahmed et al. 2016 (variant incorrect in the original paper)
+L145S (434T>C) / L247W (740T>G) compound heterozygote – Yamamoto et al. 2017
+V489D (1466T>A) / W541Cfs*5 (1623_1624del) compound heterozygote – Yamamoto et al 2017
+G366E (1087G>A) / V243A (728T>C) compound heterozygote – Abhyankar et al. 2018
+R340H (1019G>A) homozygote – Sun et al. 2017 (2 patients affected)
+A380S (1138G>T) homozygote – Gupta et al. 2017
+R407* (1219C>T) homozygote - Alharby et al. 2020 and Seidahmed et al. 2016 (variant incorrect in the original paper)
+V243A (728T>C) / G366E (1097G>A) compound heterozygote – Abhyankar et al. 2018
+E389Q (1165G>C) / M201Wfs*28 (601delA) compound heterozygote – Schleinitz et al. 2018
+R49Q (146G>A) homozygote – Sacharow et al. 2018 (2 patients from the same family) and Radha Rama Devi et al. 2019
+R404H (1211G>A) homozygote – Galada et al. 2018 and Alharby et al. 2020
+N75S (224A>G) / D138A (413A>C) compound heterozygote – Galada et al. 2018
+R550H (1649G>A) homozygote – Galada et al. 2018
+S263F (788C>T) homozygote – Radha Rama Devi et al. 2019 (2 patients from the same family)
+H48Q (144C>A) hemizygous – Faoucher et al. 2019
+Y398S (1193A>C) / A267V (800C>T) compound heterozygote – Yingjun et al. 2019
+F123S (368T>C) / R550H (1649G>A) compound heterozygote – Wang et al. 2019
+T475I (1424C>T) / L222Lfs*5 (666_667delCT) compound heterozygote – Chen et al. 2019
+L370F (1108C>T) homozygote – Sprute et al. 2019
+E160Lfs*8 (478delG) / Y428C (1283A>G) compound heterozygote – Churchill et al. 2020
+Unknown variant at the protein level (1137+1G>A) - Alharby et al. 2020
+N75I (224A>T) homozygote – Alharby et al. 2020
+T475N (1424C>A) homozygote – Alharby et al. 2020
+Unknown variant at the protein level (674-1G>A) – Alharby et al. 2020
+Cryptic 5′ splice‐site or exon 12 skipping (1476+1G>A) homozygote – Akesson et al. 2020
+R550H (1649G>A) / F123S (368T>C) compound heterozygote – Wang et al. 2020
+V133Q (397_398GT>CA) homozygote – Abdel-Salam et al. 2021
+L145S / L247W / V489D / W541Cfs*4 (patients from ???) – Matsumoto et al. 2021
+G254V (761G>T) homozygote -  {Costa, 2019 #5878} 
+G373V (1118G>T) / R519H (1556G>A) compound heterozygote – Staklinski et al. 2022, JBC
+S480F (1439C>T) / N80S (239A>G) compound heterozygote – Staklinski et al. 2022, IJMS
+H205P (614A>C) / Y398Lfs*4 (1192dupT) compound heterozygote – Staklinski et al. 2023
+R28Q (83G>A) / Q361V (1082A>T) compound heterozygote – Altintas et al. 2023
