@@ -1,4 +1,4 @@
-# Comparative analysis of ASNS variant pathogenicity predictions and known ASNSD associated variants
+## Comparative analysis of ASNS variant pathogenicity predictions by AlphaMissense and known ASNSD associated variants in the literature
 
 The goals of this repo are to:
 
