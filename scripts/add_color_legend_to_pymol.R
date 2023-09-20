@@ -4,7 +4,7 @@ library(cowplot)
 # Check if a command-line argument (input file path) is provided
 # args <- commandArgs(trailingOnly = TRUE)
 # if (length(args) != 2) {
-#   stop("Usage: Rscript add_legend_to_image.R <input_pymol.png> <output_filepath>")
+#   stop("Usage: Rscript add_color_legend_to_pymol.R <input_pymol.png> <output_filepath>")
 # }
 
 # pymol_png <- args[1]
