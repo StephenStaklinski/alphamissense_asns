@@ -22,7 +22,7 @@ The database was filtered for those relevant to Asparagine Synthetase (ASNS, Uni
 
 The ASNS protein (PDB 6GQ3) was colored in pymol using the script `scripts/color_structure_pymol.py`, which requires prior use of `scripts/average_pathogenicity_score_aa.py` and the result was input to `scripts/add_color_legend_to_pymol.R` to add the legend which corresponds the the AlphaMissense pathogenicity score predictions from 0 to 1.
 
-![Alt text](/results/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
+![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
 
 ### Questions
