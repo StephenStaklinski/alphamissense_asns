@@ -30,7 +30,7 @@ The average pathogenicity score by amino acid position was plotted and colors we
 
 ### Questions
 
-If any issues while using my analysis that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
+If any issues arise while using my analysis that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
 
 I can assist others that are characterizing ASNS variants and would like help with the AlphaMissense dataset.
 
