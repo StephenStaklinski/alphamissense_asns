@@ -19,7 +19,7 @@ conda env create -f env/asns_variants.yml
 
 The database was filtered for those relevant to Asparagine Synthetase (ASNS, UniProt_id P08243, ENST00000394308) using `scripts/extract_uniprot.sh` and compared to a list of known Asparagine Synthetase Deficiency (ASNSD) associated variants, found in `data/asnsd_variants_raw_data/asnsd_missense_variants.txt`, which were curated a comprehensive literature search. The results of the literature search for ASNSD mutations are provided in `data/asnsd_variants_raw_data/asnsd_literature_summary.txt`. The known ASNSD variant results from AlphaMissense were found using `scripts/extract_known_asnsd_alphamissense.sh` and the results are in `results/extracted_alphamissense_known_asnsd_variants.tsv`.
 
-The ASNS protein structure (PDB 6GQ3) was colored in pymol using the script `scripts/color_structure_pymol.py`, which requires prior use of `scripts/average_pathogenicity_score_aa.py`. The pymol result was used for `scripts/add_color_legend_to_pymol.R` to add the legend which corresponds the the average AlphaMissense pathogenicity score predictions from 0 to 1.
+The ASNS protein structure (PDB 6GQ3) was colored in pymol using the script `scripts/color_structure_pymol.py`, which requires prior use of `scripts/average_pathogenicity_score_aa.py`. The pymol result was used for `scripts/add_color_legend_to_pymol.R` to add the legend which corresponds to the average AlphaMissense pathogenicity score predictions from 0 to 1.
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
@@ -30,7 +30,7 @@ The average pathogenicity score by amino acid position was plotted and colors we
 
 ### Questions
 
-If any issues arise using my analysis that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
+If any issues while using my analysis that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
 
 I can assist others that are characterizing ASNS variants and would like help with the AlphaMissense dataset.
 
