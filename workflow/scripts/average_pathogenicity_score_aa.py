@@ -2,10 +2,10 @@ import sys
 import pandas as pd
 import numpy as np
 
-# input_tsv = sys.argv[1]
-# output_file = sys.argv[2]
-input_tsv = "results/P08243_aa_substitutions.tsv"
-output_file="results/average_pathogenicity_score_aa.tsv"
+input_tsv = sys.argv[1]
+output_file = sys.argv[2]
+# input_tsv = "results/P08243_aa_substitutions.tsv"
+# output_file="results/average_pathogenicity_score_aa.tsv"
 
 # Load the TSV file into a DataFrame
 df = pd.read_csv(input_tsv, sep='\t', header=0, skiprows=3)

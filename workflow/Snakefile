@@ -1,0 +1,52 @@
+import os
+
+configfile: "./config/config.yaml"
+
+rule all:
+    input:
+      plot_aa = "../results_{uniprot}/{uniprot}_plot_aminoacid_pathogenicity_score.png".format(uniprot=config['uniprot'])
+    params:
+      wd = os.getcwd()
+    message:
+     '''
+     This is the AlphaMissense data analysis pipeline.
+     '''
+
+rule extract_uniprot:
+    input:
+        alphamissense_raw_data = config['alphamissense_raw_data']
+    params:
+        uniprot = config['uniprot'],
+    output:
+        uniprot_results = "../results_{uniprot}/{uniprot}_specific_aa_substitutions.tsv".format(uniprot=config['uniprot'])
+    conda:
+        "env/asns_variants.yml"
+    shell:
+        """
+        ./scripts/extract_uniprot.sh {params.uniprot} {input.alphamissense_raw_data} {output.uniprot_results}
+        """
+
+rule avg_pathogenicity_score:
+    input:
+        uniprot_results = "../results_{uniprot}/{uniprot}_specific_aa_substitutions.tsv".format(uniprot=config['uniprot'])
+    output:
+        avg_path_score = "../results_{uniprot}/{uniprot}_average_pathogenicity_score_aa.tsv".format(uniprot=config['uniprot'])
+    conda:
+        "env/asns_variants.yml"
+    shell:
+        """
+        python ./scripts/average_pathogenicity_score_aa.py {input.uniprot_results} {output.avg_path_score}
+        """
+
+rule plot_avg_path:
+    input:
+        avg_path_score = "../results_{uniprot}/{uniprot}_average_pathogenicity_score_aa.tsv".format(uniprot=config['uniprot'])
+    output:
+        plot_aa = "../results_{uniprot}/{uniprot}_plot_aminoacid_pathogenicity_score.png"
+    conda:
+        "env/asns_variants.yml"
+    shell:
+        """
+        Rscript ./scripts/plot_aminoacid_score.R {input.avg_path_score} {output.plot_aa}
+        """
+
