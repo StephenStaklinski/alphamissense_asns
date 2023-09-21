@@ -1,4 +1,4 @@
-## Comparative analysis of ASNS variant pathogenicity predictions by AlphaMissense and known ASNSD associated variants in the literature
+## Snakemake pipeline for average AlphaMissense pathogenicity score by UniProtID. Analysis of Asparagine Synthetase predictions.
 
 The goals of this repo are to:
 1. Provide a Snakemake pipeline to analyze the average AlphaMissense pathogenicity score for any UniProt ID.
