@@ -1,8 +1,8 @@
 ## Comparative analysis of ASNS variant pathogenicity predictions by AlphaMissense and known ASNSD associated variants in the literature
 
 The goals of this repo are to:
-1. perform a comparative analysis of predicted ASNS variant effects to known effects in the ASNSD literature
-2. simplify the accessibility of data from AlphaMissense predictions for use by those caring for patients with a potential diagnosis of ASNSD.
+1. Perform a comparative analysis of predicted ASNS variant effects to known effects in the ASNSD literature.
+2. Simplify the accessibility of data from AlphaMissense predictions for use by those caring for patients with a potential diagnosis of ASNSD.
 
 ### AlphaMissense
 
@@ -23,7 +23,7 @@ The ASNS protein structure (PDB 6GQ3) was colored in pymol using the script `scr
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
-The average pathogenicity score by amino acid position was plotted and colors were overlayed for any amino acid positions with a known ASNSD variant, where the coloring is based on the prediction for that specifi variant. It is important to note that other variants at this position may have other predictions, but they are not yet reported as ASNSD variants.
+The average pathogenicity score by amino acid position was plotted and colors were overlayed for any amino acid positions with a known ASNSD variant, where the coloring is based on the prediction for that specific variant. It is important to note that other variants at this position may have other predictions, but they are not yet reported as ASNSD variants.
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_with_asnsd.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for the prediction at those amino acids with a reported ASNSD variant in the literature")
 
