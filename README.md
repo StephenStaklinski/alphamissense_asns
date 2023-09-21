@@ -1,8 +1,9 @@
 ## Comparative analysis of ASNS variant pathogenicity predictions by AlphaMissense and known ASNSD associated variants in the literature
 
 The goals of this repo are to:
-1. Perform a comparative analysis of predicted ASNS variant effects to known effects in the ASNSD literature.
-2. Simplify the accessibility of data from AlphaMissense predictions for use by those caring for patients with a potential diagnosis of ASNSD.
+1. Provide a Snakemake pipeline to analyze the average AlphaMissense pathogenicity score for any UniProt ID.
+2. Perform a comparative analysis of predicted Asparagine Synthetase (ASNS) variant effects to known effects in the Asparagine Synthetase Deficiency (ASNSD) literature.
+3. Simplify the accessibility of data from AlphaMissense predictions for those seeing patients with a potential diagnosis of ASNSD.
 
 ### AlphaMissense
 
@@ -10,9 +11,9 @@ This repo uses the genome wide variant effect predictions database produced by t
 
 The raw data from AlphaMissense can be downloaded from the data availability section of their paper if needed. The subsequent results from my analysis of their raw file are provided here.
 
-### Snakemake pipeline for AlphaMisense average pathogenicity score analysis of any UniProt ID
+### Snakemake pipeline for average pathogenicity score analysis of any UniProt ID
 
-I have provided a Snakemake pipeline to do the basic steps of subsetting AlphaMissense data, calculating average pathogenicity scores per amino acid, and plotting the average scores per amino acid for that protein. This is meant to work with any UniProt ID, which can be specified in the `workflow/config/config.yaml` file. Users must first install [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) and both download and unzip the AlphaMissense raw data file into [data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv](https://console.cloud.google.com/storage/browser/dm_alphamissense;tab=objects?prefix=&forceOnObjectsSortingFiltering=false). Then, the snakemake pipeline can be run as per standard Snakemake input from within the `workflow/` directory of this repo:
+I have provided a Snakemake pipeline to do the basic steps of subsetting AlphaMissense data, calculating average pathogenicity scores per amino acid, and plotting the average scores per amino acid for that protein. This is meant to work with any UniProt ID, which can be specified in the `workflow/config/config.yaml` file. Users must first install [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) and both download and unzip the [AlphaMissense raw data file](https://console.cloud.google.com/storage/browser/dm_alphamissense;tab=objects?prefix=&forceOnObjectsSortingFiltering=false) into `data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv`. Then, the snakemake pipeline can be run as per standard Snakemake input from within the `workflow/` directory of this repo:
 ```
 snakemake --use-conda --cores 1
 ```
@@ -43,5 +44,5 @@ I can assist others that are characterizing ASNS variants and would like help wi
 
 ### Copyright and license
 
-The raw data for AlphaMissense is under Copyright 2023 DeepMind Technologies Limited.
-This repo is licensed under [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+The raw data is used directly from the community resources provided by AlphaMissense which are under Copyright 2023 DeepMind Technologies Limited.
+As required by the use of AlphaMissense data, this repo is licensed under [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)

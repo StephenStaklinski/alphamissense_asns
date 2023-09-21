@@ -47,6 +47,6 @@ rule plot_avg_path:
         "env/asns_variants.yml"
     shell:
         """
-        Rscript ./scripts/plot_aminoacid_score.R {input.avg_path_score} {output.plot_aa}
+        Rscript ./scripts/plot_aminoacid_scores.R {input.avg_path_score} {output.plot_aa}
         """
 

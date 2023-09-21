@@ -1,1 +1,4 @@
 data/alphamissense_raw_data/*
+Rplots.pdf
+.snakemake
+gurobi.log

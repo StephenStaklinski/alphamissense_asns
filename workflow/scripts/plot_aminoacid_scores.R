@@ -1,13 +1,12 @@
 # Load necessary libraries
 library(ggplot2)
 
-Check if a command-line argument (input file path) is provided
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) != 2) {
   stop("Usage: Rscript plot_aminoacid_scores.R <input_score_tsv_path> <output_filepath>")
 }
 
-score_path <- args[1]
+score_filepath <- args[1]
 output_filepath <- args[2]
 
 # Read the data from the TSV file
@@ -27,7 +26,8 @@ ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score)) +
     strip.text.x.top = element_blank(),
     plot.margin = margin(10, 10, 10, 10),
     axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
-    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0))) 
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)),
+    plot.background = element_rect(fill = "white")) 
 
 ggsave(output_filepath)
 
