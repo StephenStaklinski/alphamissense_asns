@@ -37,4 +37,4 @@ I can assist others that are characterizing ASNS variants and would like help wi
 ### Copyright and license
 
 The raw data for AlphaMissense is under Copyright 2023 DeepMind Technologies Limited.
-This repo is licensed under [CC BY-NC-SA 4.0 license] (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+This repo is licensed under [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
