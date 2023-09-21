@@ -61,11 +61,11 @@ library(ggtext)
 # data$known_asnsd <- ifelse(data$Amino_Acid_Position %in% known_asnsd_pathogenic_predicted, "Predicted pathogenic",
 #                        ifelse(data$Amino_Acid_Position %in% known_asnsd_ambiguous_predicted, "Predicted ambiguous",
 #                               ifelse(data$Amino_Acid_Position %in% known_asnsd_benign_predicted, "Predicted benign", "Not a reported ASNSD variant")))
-# known_asnsd_colors <- c("Predicted pathogenic" = "green", "Predicted ambiguous" = "orange", "Predicted benign" = "red", "Not a reported ASNSD variant" = "black")
+# known_asnsd_colors <- c("Predicted pathogenic" = "orange", "Predicted ambiguous" = "green", "Predicted benign" = "blue", "Not a reported ASNSD variant" = "black")
 # legend_order <- c("Predicted pathogenic", "Predicted ambiguous", "Predicted benign", "Not a reported ASNSD variant")
 
 # ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score, color = known_asnsd)) +
-#   geom_point(size = 0.5) +
+#   geom_point(size = 0.75) +
 #   facet_wrap(~cut(Amino_Acid_Position, breaks = seq(0, max(Amino_Acid_Position) + 100, by = 100)), nrow = 6, scales = "free_x") +
 #   theme_bw() +
 #   coord_cartesian(clip = "off") +
@@ -79,9 +79,7 @@ library(ggtext)
 #     axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0), color = "black"),
 #     axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0), color = "black"),
 #     axis.text = element_text(color = "black"),
-#     legend.title.align = 0.5,
-#     legend.key.size = unit(0.5, "lines"),
-#   ) 
+#     legend.title.align = 0.5) 
 
 # ggsave(output_filepath)
 
@@ -95,10 +93,10 @@ library(ggtext)
 score_filepath <- "results/average_pathogenicity_score_aa.tsv"
 output_filepath <- "results/plot_aminoacid_pathogenicity_score_highlight_structure.png"
 
-# args <- commandArgs(trailingOnly = TRUE)
-# if (length(args) != 2) {
-#   stop("Usage: Rscript plot_aminoacid_scores.R <input_score_tsv_path> <output_filepath>")
-# }
+# # args <- commandArgs(trailingOnly = TRUE)
+# # if (length(args) != 2) {
+# #   stop("Usage: Rscript plot_aminoacid_scores.R <input_score_tsv_path> <output_filepath>")
+# # }
 
 # score_filepath <- args[1]
 # output_filepath <- args[2]
@@ -114,7 +112,7 @@ highlight_n_active_site <- c(49, 53, 75, 76, 77, 97)
 highlight_c_active_site <- c(401, 404, 345, 348, 288, 256, 286, 287, 295, 465, 257, 258, 363, 365, 263, 264, 261, 262, 445, 368, 374)
 
 plot <- ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score)) +
-  geom_point(size = 0.5) +
+  geom_point(size = 0.75) +
   facet_wrap(~cut(Amino_Acid_Position, breaks = seq(0, max(Amino_Acid_Position) + 100, by = 100)), nrow = 6, scales = "free_x") +
   theme_bw() +
   coord_cartesian(clip = "off") +
@@ -130,13 +128,13 @@ plot <- ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score)) +
     legend.title = element_blank()) +
   geom_segment(aes(x = Amino_Acid_Position, xend = Amino_Acid_Position, y = 0, yend = 1, color = "Intramolecular tunnel"), 
                data = data.frame(Amino_Acid_Position = highlight_tunnel_positions),
-              linewidth = 2, linetype = "solid", alpha = 0.2) +
+              linewidth = 1.4, linetype = "solid", alpha = 0.4) +
   geom_segment(aes(x = Amino_Acid_Position, xend = Amino_Acid_Position, y = 0, yend = 1, color = "N-terminal active site"), 
                data = data.frame(Amino_Acid_Position = highlight_n_active_site),
-              linewidth = 2, linetype = "solid", alpha = 0.2) +
+              linewidth = 1.4, linetype = "solid", alpha = 0.4) +
   geom_segment(aes(x = Amino_Acid_Position, xend = Amino_Acid_Position, y = 0, yend = 1, color = "C-terminal active site"), 
                data = data.frame(Amino_Acid_Position = highlight_c_active_site),
-              linewidth = 2, linetype = "solid", alpha = 0.2)
+              linewidth = 1.4, linetype = "solid", alpha = 0.4)
 
 
 ggsave(output_filepath)
