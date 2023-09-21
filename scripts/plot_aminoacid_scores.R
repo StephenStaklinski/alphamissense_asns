@@ -35,7 +35,7 @@ ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score, color = known
   facet_wrap(~cut(Amino_Acid_Position, breaks = seq(0, max(Amino_Acid_Position) + 100, by = 100)), nrow = 6, scales = "free_x") +
   theme_minimal() +
   coord_cartesian(clip = "off") +
-  labs(x = "Amino Acid Position", y = "Pathogenicity Score") +
+  labs(x = "Amino Acid Position", y = "Average Pathogenicity Score") +
   scale_x_continuous(breaks = seq(0, max(data$Amino_Acid_Position), by = 10)) +
   scale_color_manual(values = known_asnsd_colors, name = "Predictions for known\nASNSD variants", limits = legend_order) + 
   theme(

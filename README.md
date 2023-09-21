@@ -1,9 +1,8 @@
 ## Comparative analysis of ASNS variant pathogenicity predictions by AlphaMissense and known ASNSD associated variants in the literature
 
 The goals of this repo are to:
-
-    1. perform a comparative analysis of predicted ASNS variant effects to known effects in the ASNSD literature
-    2. simplify the accessibility of data from AlphaMissense predictions for use by those caring for patients with a potential diagnosis of ASNSD.
+1. perform a comparative analysis of predicted ASNS variant effects to known effects in the ASNSD literature
+2. simplify the accessibility of data from AlphaMissense predictions for use by those caring for patients with a potential diagnosis of ASNSD.
 
 ### AlphaMissense
 
@@ -29,9 +28,9 @@ The ASNS protein (PDB 6GQ3) was colored in pymol using the script `scripts/color
 
 ### Questions
 
-If any issues arise using this basic repo that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
+If any issues arise using this basic analysis that subsets AlphaMissense predictions for ASNS variant classification with particular focus on ASNSD variants curated from a literature search, then please contact me at staklins@cshl.edu. 
 
-I am glad to assist others that are characterizing ASNS variants and could use assistance with the AlphaMissense dataset.
+I can assist others that are characterizing ASNS variants and can use assistance with the AlphaMissense dataset.
 
 ### Copyright and license
 
