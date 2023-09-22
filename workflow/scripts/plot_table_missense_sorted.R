@@ -13,6 +13,6 @@ data <- read.delim(missense_predictions_tsv, header = FALSE, sep = "\t", strings
 colnames(data) <- c("uniprot", "variant", "score", "prediction")
 
 selected_columns <- data %>% select(variant, score, prediction)
-png(output_file, width = 900, height = 3100, units = "px", res = 300)
+png(output_file, width = 900, height = 3300, units = "px", res = 300)
 grid.table(selected_columns)
 dev.off()

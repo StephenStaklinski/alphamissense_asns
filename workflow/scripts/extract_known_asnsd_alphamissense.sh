@@ -9,9 +9,9 @@
 # key_file="$1"
 # data_file="$2"
 # output_file="$3"
-key_file="asnsd_variants_raw_data/asnsd_missense_variants.txt"
+key_file="data/asnsd_variants_raw_data/asnsd_missense_variants.txt"
 data_file="results/P08243_aa_substitutions.tsv"
-output_file="results/extracted_alphamissense_known_asnsd_variants.tsv"
+output_file="results/extracted_alphamissense_known_asnsd_variants_unsorted.tsv"
 
 # Check if the key file exists
 if [ ! -f "$key_file" ]; then
