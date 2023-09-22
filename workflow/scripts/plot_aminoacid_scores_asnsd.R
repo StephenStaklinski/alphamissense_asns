@@ -1,7 +1,5 @@
 # Load necessary libraries
 library(ggplot2)
-library(cowplot)
-library(ggtext)
 
 # score_filepath <- "results/average_pathogenicity_score_aa.tsv"
 # output_filepath <- "results/plot_aminoacid_pathogenicity_score_no_asnsd.png"
