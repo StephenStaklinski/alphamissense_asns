@@ -47,7 +47,7 @@ score_filepath <- "results/average_pathogenicity_score_aa.tsv"
 output_filepath <- "results/plot_aminoacid_pathogenicity_score_with_asnsd.png"
 
 # manually input the extracted predictions for known ASNSD variants to color in the plot
-known_asnsd_pathogenic_predicted <- list(6, 27, 48, 49, 75, 123, 133, 138, 145, 205, 243, 247, 254, 263, 289, 337, 340, 362, 366, 370, 373, 389, 404, 475, 480, 489, 519, 550)
+known_asnsd_pathogenic_predicted <- list(6, 27, 48, 49, 75, 123, 133, 138, 145, 205, 243, 247, 254, 263, 289, 337, 340, 362, 366, 370, 373, 376, 389, 404, 475, 480, 489, 519, 550)
 known_asnsd_ambiguous_predicted <- list(75, 398, 267, 428, 475)
 known_asnsd_benign_predicted <- list(80, 380)
 
