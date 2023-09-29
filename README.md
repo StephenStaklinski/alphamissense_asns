@@ -1,4 +1,4 @@
-## Snakemake pipeline for AlphaMissense pathogenicity score by UniProtID. Analysis of Asparagine Synthetase predictions.
+## Snakemake pipeline for visualizing AlphaMissense pathogenicity score by UniProtID. Analysis of Asparagine Synthetase predictions.
 
 The goals of this repo are to:
 1. Provide a Snakemake pipeline to analyze the average AlphaMissense pathogenicity score per amino acid for any UniProt ID.
