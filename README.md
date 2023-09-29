@@ -31,6 +31,8 @@ The ASNS protein structure (PDB 6GQ3) was colored in pymol using the script `wor
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
+![Alt text](/results/P08243_plot_aminoacid_heatmap.png?raw=true "Heatmap of pathogenicity scores for all ASNS variants")
+
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_highlight_structure.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for known critical residues")
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_with_asnsd.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for the prediction at those amino acids with a reported ASNSD variant in the literature")
