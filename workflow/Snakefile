@@ -4,13 +4,14 @@ configfile: "./config/config.yaml"
 
 rule all:
     input:
-      plot_aa = "../results_{uniprot}/{uniprot}_plot_aminoacid_pathogenicity_score.png".format(uniprot=config['uniprot'])
+        plot_aa = "../results_{uniprot}/{uniprot}_plot_aminoacid_pathogenicity_score.png".format(uniprot=config['uniprot']),
+        plot_aa_heatmap = "../results_{uniprot}/{uniprot}_plot_aminoacid_heatmap.png".format(uniprot=config['uniprot'])
     params:
-      wd = os.getcwd()
+        wd = os.getcwd()
     message:
-     '''
-     This is the AlphaMissense data analysis pipeline.
-     '''
+        '''
+        This is the AlphaMissense data analysis pipeline.
+        '''
 
 rule extract_uniprot:
     input:
@@ -48,5 +49,17 @@ rule plot_avg_path:
     shell:
         """
         Rscript ./scripts/plot_aminoacid_scores.R {input.avg_path_score} {output.plot_aa}
+        """
+
+rule plot_heatmap_path:
+    input:
+        uniprot_results = "../results_{uniprot}/{uniprot}_specific_aa_substitutions.tsv".format(uniprot=config['uniprot'])
+    output:
+        plot_aa_heatmap = "../results_{uniprot}/{uniprot}_plot_aminoacid_heatmap.png".format(uniprot=config['uniprot'])
+    conda:
+        "env/asns_variants.yml"
+    shell:
+        """
+        python ./scripts/plot_aminoacid_heatmap.py {input.uniprot_results} {output.plot_aa_heatmap}
         """
 

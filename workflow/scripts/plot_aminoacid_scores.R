@@ -2,13 +2,13 @@
 library(ggplot2)
 
 
-# args <- commandArgs(trailingOnly = TRUE)
+args <- commandArgs(trailingOnly = TRUE)
 # if (length(args) != 2) {
 #   stop("Usage: Rscript plot_aminoacid_scores.R <input_score_tsv_path> <output_filepath>")
 # }
 
-# score_filepath <- args[1]
-# output_filepath <- args[2]
+score_filepath <- args[1]
+output_filepath <- args[2]
 
 # Read the data from the TSV file
 data <- read.table(score_filepath, header = FALSE, sep = "\t")
