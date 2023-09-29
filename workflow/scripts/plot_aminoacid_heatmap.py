@@ -19,7 +19,7 @@ heatmap_data = data.pivot(index="Amino Acid", columns="Position", values="Score"
 
 # Create the heatmap using Seaborn
 plt.figure(figsize=(12, 6))
-heatmap = sns.heatmap(heatmap_data, cmap="coolwarm", annot=False, fmt=".2f", cbar_kws={'label': 'AM pathogenicity score'})
+sns.heatmap(heatmap_data, cmap="coolwarm", annot=False, fmt=".2f", cbar_kws={'label': 'AM pathogenicity score'}, vmin=0, vmax=1)
 plt.xlabel("Position")
 plt.ylabel("Alternate amino acid")
 plt.tight_layout()
