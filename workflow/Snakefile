@@ -13,9 +13,29 @@ rule all:
         This is the AlphaMissense data analysis pipeline.
         '''
 
+rule download_unzip_substitution_data:
+    params:
+        url = "https://zenodo.org/record/8208688/files/AlphaMissense_aa_substitutions.tsv.gz?download=1"
+    output:
+        alphamissense_raw_data = "../data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv"
+    run:
+        # Check if the file already exists; if not, download and unzip it
+        if not os.path.exists(output.alphamissense_raw_data):
+            shell("""
+                curl -L -o {output.alphamissense_raw_data}.gz {params.url}
+                gunzip -c {output.alphamissense_raw_data}.gz > {output.alphamissense_raw_data}
+            """)
+        else:
+            # File already exists, just unzip it if it's compressed
+            if not os.path.exists(output.alphamissense_raw_data + '.gz'):
+                raise Exception("Downloaded file is missing, and the compressed file is missing as well.")
+
+            shell("gunzip -c {output.alphamissense_raw_data}.gz > {output.alphamissense_raw_data}")
+
+
 rule extract_uniprot:
     input:
-        alphamissense_raw_data = config['alphamissense_raw_data']
+        alphamissense_raw_data = "../data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv"
     params:
         uniprot = config['uniprot'],
     output:
