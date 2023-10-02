@@ -16,8 +16,8 @@ Input:
 1. UniProt ID specified in `workflow/config/config.yaml` with uppercase letters.
 
 Output:
-1. A plot of average pathogenicity scores per amino acid
-2. A pdb file for the corresponding AlphaFold structure with beta factors colored by AlphaMissense avg pathogenicity scores as beta factors
+1. A plot of average pathogenicity scores per amino acid.
+2. A pdb file for the corresponding AlphaFold structure with beta factors colored by AlphaMissense avg pathogenicity scores as beta factors.
 3. A heatmap of all variant AlphaMissense pathogenicity scores for all positions. 
 
 Users must first install [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), then run from within the `workflow/` directory of this repo:
@@ -32,7 +32,7 @@ To use any of the provided scripts outside of the Snakemake workflow, please ins
 conda env create -f workflow/env/asns_variants.yml
 ```
 
-The database was filtered for variants relevant to Asparagine Synthetase (ASNS, UniProt_id P08243) using `workflow/scripts/extract_uniprot.sh`. The ASNS protein structure (PDB 6GQ3) was colored for the average AlphaMissense pathogenicity score predictions from 0 to 1 in pymol using the script `workflow/scripts/color_structure_pymol.py`, which requires prior use of `workflow/scripts/average_pathogenicity_score_aa.py`.
+The database was filtered for variants relevant to Asparagine Synthetase (ASNS, UniProt_id P08243). The ASNS protein structure (PDB 6GQ3) was colored for the average AlphaMissense pathogenicity score predictions from 0 to 1 in pymol. This was done prior to automation within the Snakemake pipeline, but should give the same result.
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
@@ -42,7 +42,7 @@ AlphaMissense predictions were highlighted for known critical residues in ASNS.
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_highlight_structure.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for known critical residues")
 
- AlphaMissense predictions were benchmarked to a list of known Asparagine Synthetase Deficiency (ASNSD) associated variants which were curated from a comprehensive literature search.
+AlphaMissense predictions were benchmarked to a list of known Asparagine Synthetase Deficiency (ASNSD) associated variants which were curated from a comprehensive literature search.
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_with_asnsd.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for the prediction at those amino acids with a reported ASNSD variant in the literature")
 
