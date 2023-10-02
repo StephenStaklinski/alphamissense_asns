@@ -36,7 +36,7 @@ The database was filtered for variants relevant to Asparagine Synthetase (ASNS, 
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
-Heatmap of pathogenicity score for all ASNS variants:
+Heatmap of pathogenicity scores for all ASNS variants:
 
 ![Alt text](/results/P08243_plot_aminoacid_heatmap.png?raw=true "Heatmap of pathogenicity scores for all ASNS variants")
 
