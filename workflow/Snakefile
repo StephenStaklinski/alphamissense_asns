@@ -5,7 +5,8 @@ configfile: "./config/config.yaml"
 rule all:
     input:
         plot_aa = "../results_{uniprot}/{uniprot}_plot_aminoacid_pathogenicity_score.png".format(uniprot=config['uniprot']),
-        plot_aa_heatmap = "../results_{uniprot}/{uniprot}_plot_aminoacid_heatmap.png".format(uniprot=config['uniprot'])
+        plot_aa_heatmap = "../results_{uniprot}/{uniprot}_plot_aminoacid_heatmap.png".format(uniprot=config['uniprot']),
+        colored_pdb = "../results_{uniprot}/{uniprot}_colored_avg_path.pdb".format(uniprot=config['uniprot'])
     params:
         wd = os.getcwd()
     message:
@@ -17,7 +18,8 @@ rule download_unzip_substitution_data:
     params:
         url = "https://zenodo.org/record/8208688/files/AlphaMissense_aa_substitutions.tsv.gz?download=1"
     output:
-        alphamissense_raw_data = "../data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv"
+        alphamissense_raw_data = "../data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv",
+        alphamissense_raw_data_zip = temp("../data/alphamissense_raw_data/AlphaMissense_aa_substitutions.tsv.gz")
     run:
         # Check if the file already exists; if not, download and unzip it
         if not os.path.exists(output.alphamissense_raw_data):
@@ -31,7 +33,6 @@ rule download_unzip_substitution_data:
                 raise Exception("Downloaded file is missing, and the compressed file is missing as well.")
 
             shell("gunzip -c {output.alphamissense_raw_data}.gz > {output.alphamissense_raw_data}")
-
 
 rule extract_uniprot:
     input:
@@ -83,3 +84,25 @@ rule plot_heatmap_path:
         python ./scripts/plot_aminoacid_heatmap.py {input.uniprot_results} {output.plot_aa_heatmap}
         """
 
+rule color_pdb:
+    input:
+        avg_path_score = "../results_{uniprot}/{uniprot}_average_pathogenicity_score_aa.tsv".format(uniprot=config['uniprot'])
+    params:
+        uniprot = config['uniprot']
+    output:
+        raw_pdb = temp("../data/{uniprot}_raw_pdb.pdb".format(uniprot=config['uniprot'])),
+        colored_pdb = "../results_{uniprot}/{uniprot}_colored_avg_path.pdb".format(uniprot=config['uniprot'])
+    conda:
+        "env/asns_variants.yml"
+    shell:
+        """
+        url="https://alphafold.ebi.ac.uk/api/prediction/{params.uniprot}"
+        json_data=$(curl -L $url)
+        pdb_url=$(echo $json_data | grep -o -P '(?<="pdbUrl":").*(?=\",)' | awk -F '",' '{{print $1}}')
+        pdb_url+="?download=1"
+        if [ ! -e {output.raw_pdb} ]; then
+            curl -L -o {output.raw_pdb} ${{pdb_url}}
+        fi
+        avg_path=$(cut -f 2 {input.avg_path_score})
+        python ./scripts/color_pdb.py {output.raw_pdb} "$avg_path" {output.colored_pdb}
+        """

@@ -10,7 +10,17 @@ This repo uses the AlphaMissense variant effect predictions database from the au
 
 ### Snakemake pipeline for average pathogenicity score analysis of any UniProt ID
 
-I have provided a Snakemake pipeline to subset AlphaMissense data for any UniProt ID specified in `workflow/config/config.yaml`, calculate and plot average pathogenicity scores per amino acid, and plot a heatmap of all variant scores for all positions. Users must first install [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), then run from within the `workflow/` directory of this repo:
+I have provided a Snakemake pipeline to subset AlphaMissense data for any UniProt ID as follows:
+
+Input:
+1. UniProt ID specified in `workflow/config/config.yaml` with uppercase letters.
+
+Output:
+1. A plot of average pathogenicity scores per amino acid
+2. A pdb file for the corresponding AlphaFold structure with beta factors colored by AlphaMissense avg pathogenicity scores as beta factors
+3. A heatmap of all variant AlphaMissense pathogenicity scores for all positions. 
+
+Users must first install [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), then run from within the `workflow/` directory of this repo:
 ```
 snakemake --use-conda --cores 1
 ```
