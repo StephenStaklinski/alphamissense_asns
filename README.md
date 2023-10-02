@@ -32,17 +32,19 @@ To use any of the provided scripts outside of the Snakemake workflow, please ins
 conda env create -f workflow/env/asns_variants.yml
 ```
 
-The database was filtered for variants relevant to Asparagine Synthetase (ASNS, UniProt ID P08243). The ASNS protein structure (PDB 6GQ3) was colored for the average AlphaMissense pathogenicity score predictions from 0 to 1 in pymol. This was done prior to automation within the Snakemake pipeline, but should give the same result.
+The database was filtered for variants relevant to Asparagine Synthetase (ASNS, UniProt ID P08243). The ASNS protein structure (PDB 6GQ3) was colored for the average AlphaMissense pathogenicity score predictions from 0 to 1 in pymol. This was done prior to automation within the Snakemake pipeline, but should give the same result:
 
 ![Alt text](/results/color_asns_structure/pathogenic_colored_asns_legend.png?raw=true "ASNS protein structure with amino acids colored by the average AlphaMissense pathogenicity score")
 
+Heatmap of pathogenicity score for all ASNS variants:
+
 ![Alt text](/results/P08243_plot_aminoacid_heatmap.png?raw=true "Heatmap of pathogenicity scores for all ASNS variants")
 
-AlphaMissense predictions were highlighted for known critical residues in ASNS.
+AlphaMissense predictions were highlighted for known critical residues in ASNS:
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_highlight_structure.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for known critical residues")
 
-AlphaMissense predictions were benchmarked to a list of known Asparagine Synthetase Deficiency (ASNSD) associated variants which were curated from a comprehensive literature search.
+AlphaMissense predictions were benchmarked to a list of known Asparagine Synthetase Deficiency (ASNSD) associated variants which were curated from a comprehensive literature search:
 
 ![Alt text](/results/plot_aminoacid_pathogenicity_score_with_asnsd.png?raw=true "Average AlphaMissense pathogenicity score by amino acid position and colored for the prediction at those amino acids with a reported ASNSD variant in the literature")
 
