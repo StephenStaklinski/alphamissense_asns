@@ -106,9 +106,10 @@ data <- read.table(score_filepath, header = FALSE, sep = "\t")
 # Rename columns for clarity
 colnames(data) <- c("Amino_Acid_Position", "Pathogenicity_Score")
 
-highlight_tunnel_positions <- c(120, 142, 143, 256, 345, 405, 416)
+highlight_tunnel_positions <- c(120, 142, 143, 405, 416)
 highlight_n_active_site <- c(49, 53, 75, 76, 77, 97)
-highlight_c_active_site <- c(401, 404, 345, 348, 288, 256, 286, 287, 295, 465, 257, 258, 364, 365, 263, 264, 261, 262, 445, 368, 374)
+highlight_c_active_site <- c(401, 404, 348, 288, 286, 287, 295, 465, 257, 258, 364, 365, 263, 264, 261, 262, 445, 368, 374)
+highlight_both_c_terminal_tunnel <- c(256, 345)
 
 plot <- ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score)) +
   geom_point(size = 0.75) +
@@ -133,6 +134,9 @@ plot <- ggplot(data, aes(x = Amino_Acid_Position, y = Pathogenicity_Score)) +
               linewidth = 1.4, linetype = "solid", alpha = 0.4) +
   geom_segment(aes(x = Amino_Acid_Position, xend = Amino_Acid_Position, y = 0, yend = 1, color = "C-terminal active site"), 
                data = data.frame(Amino_Acid_Position = highlight_c_active_site),
+              linewidth = 1.4, linetype = "solid", alpha = 0.4) +
+  geom_segment(aes(x = Amino_Acid_Position, xend = Amino_Acid_Position, y = 0, yend = 1, color = "Both C-terminal active site\nand intramolecular tunnel"), 
+               data = data.frame(Amino_Acid_Position = highlight_both_c_terminal_tunnel),
               linewidth = 1.4, linetype = "solid", alpha = 0.4)
 
 
