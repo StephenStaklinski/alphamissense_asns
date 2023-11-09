@@ -54,7 +54,7 @@ If any issues arise, then please post an issue here or contact me at staklins@cs
 
 ### Preprint
 
-If this github repo or the associated data is useful, then please consider citing the associated [bioRxiv preprint](https://www.biorxiv.org/content/10.1101/2023.10.30.564808v1.article-info).
+If this github repo and the associated data are useful, then please consider citing the associated [bioRxiv preprint](https://www.biorxiv.org/content/10.1101/2023.10.30.564808v1.article-info):
 
 Stephen J. Staklinski, Armin Scheben, Adam Siepel, Michael S. Kilberg. Utility of AlphaMissense predictions in Asparagine Synthetase deficiency variant classification. bioRxiv, 2023.10.30.564808; doi: https://doi.org/10.1101/2023.10.30.564808
 
